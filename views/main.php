@@ -2,14 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <link href="./stylesheets/app.css" rel="stylesheet">
+    <link href="../stylesheets/app.css" rel="stylesheet">
     <title>タイピングゲーム</title>
   </head>
   <body>
-
+    <header></header>
     <main>
-      <p id='text'></p>
-      <script type="text/javascript" src="./javascripts/app.js"></script>
+      <p> これはメインページです。</p>
+      <script type="text/javascript" src="../javascripts/app.js"></script>
     </main>
 
     <footer>

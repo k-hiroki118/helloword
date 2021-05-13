@@ -2,12 +2,27 @@
   padding: 0;
   margin: 0;
 }
+/* ボディー設定 */
+body {
+  height:100vh;
+}
+/* ヘッダー設定 */
+header {
+  height: 10%;
+}
+/* メイン設定 */
+main{
+  position:relative;
+  text-align: center;
+  height: 80%;
+}
 #text {
-  position: absolute;
-  font-size: 4em;
+  position:absolute;
   top:50%;
   left:50%;
-  transform: translate(-50%,-100%);
+  transform:translate(-50%,-100%);
+  width:100%;
+  font-size: 4em;
   letter-spacing: 10px;
   font-family: 'Courier';
 } 
@@ -18,10 +33,9 @@
   color: red;
   transition: all;
 }
+/* フッダー設定 */
 footer {
-  position: absolute;
-  top: 90%;
-  left: 50%;
-  transform: translate(-50%,-50%);
   font-family: 'Courier';
+  text-align: center;
+  height: 10%;
 }
