@@ -6,7 +6,9 @@ const pathinfo = path.split('/');
 const file_name = pathinfo.pop();
 // ファイル名抜きで再度文字列に変換
 const dir_name = pathinfo.join('/')
-
+// http://〇〇/helloword/ を作成
+pathinfo.pop();
+const home_dir = pathinfo.join('/');
 
 // top.php
 if(file_name == 'top.php'){
@@ -63,4 +65,59 @@ function location_main(){
 function location_last(){
   var dir_name = pathinfo.join('/')
   window.location.href = dir_name + '/last.php'; // 通常の遷移
+}
+
+// main.php
+if(file_name == 'main.php'){
+
+  var monitor_contents = document.getElementById("monitor-contents");
+  var contents = document.getElementById('contents');
+
+  // <div id="timer"> を作成
+  var div = document.createElement('div');
+  div.setAttribute('id', 'timer');
+
+
+  // スタートボタン押下後のイベント
+  document.querySelector('#start-btn').addEventListener('click',function(e){
+
+    // Ajax XMLHttpRequest() API取得
+    var xhr = new XMLHttpRequest();
+    console.log(home_dir);
+    xhr.open('GET', home_dir + '/main.php');
+    xhr.send();
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4) { // 通信の完了時
+        if (xhr.status == 200) { // 通信の成功時
+          console.log(xhr.responseText );
+        }
+      }else{
+      }
+    }
+    // ボタンイベントは動作しない。
+    e.preventDefault();
+    // #contentsにクラス「hidden」を追加
+    contents.classList.add("hidden");
+    // #monitor-contents に<div id="timer">を追加
+    monitor_contents.appendChild(div);
+
+    // カウントダウン開始
+    countDown();
+  });
+}
+
+// カウントダウン処理
+function countDown(){
+    setTimeout(function() {
+      var count = 4;
+      var id = setInterval(function(){
+        document.querySelector('#timer').textContent=count;
+        if(count <= 0) {
+          clearInterval(id)
+          document.querySelector('#timer').textContent="START!";
+          document.querySelector('#timer').classList.add("hidden");
+        };
+        count--;
+      },1000);
+    },500);
 }

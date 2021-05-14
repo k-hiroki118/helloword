@@ -9,23 +9,24 @@
     <header></header>
     <main>
       <div class="monitor">
-        <div class="monitor-contents">
-          <div class="content-text">
-            <p> こんにちは！<br>
-            <span>helloword.</span>へようこそ！<br>
-            このサイトは、タイピングゲームサイトです。<br>
-            あなたはどこまでレベルをあげられますか？
-            <br>
-            それでは、タイピングの世界へいってらっしゃい！
-            </p>
+        <div id="monitor-contents" class="monitor-contents">
+          <div id="contents">
+            <div class="content-text">
+              <p> こんにちは！<br>
+                <span class="red">helloword.</span>へようこそ！<br>
+                このサイトは、タイピングゲームサイトです。<br>
+                あなたはどこまでレベルをあげられますか？
+                <br>
+                それでは、タイピングの世界へいってらっしゃい！
+              </p>
+            </div>
+            <button id="start-btn" class="main-btn  btn--shadow"> 
+              <p>スタート</p>
+            </button>
+            <button id="role-btn" class="main-btn btn--shadow">
+              <p>ルール</p>
+            </button>
           </div>
-          <button id="start-btn" class="main-btn  btn--shadow"> 
-            <p>スタート</p>
-          </button>
-          <button id="role-btn" class="main-btn btn--shadow">
-            <p>ルール</p>
-          </button>
-
         </div>
       </div>
       <script type="text/javascript" src="../javascripts/app.js"></script>

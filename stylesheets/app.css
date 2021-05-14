@@ -66,7 +66,24 @@ footer {
   width: 100%;
   transform:translate(-50%,-100%);
 }
-.content-text p span{
+
+/* contentsを2秒かけて消す */
+#contents.hidden {
+  animation: out 1.1s linear 0s forwards;
+}
+@keyframes out {
+	0%{
+		opacity:1;
+	}
+	75%{
+		opacity:0.5;
+	}
+	100% {
+		opacity:0;
+    display: hidden;
+	}
+}
+.content-text p span.red{
   color: red;
   font-size: large;
 }
@@ -98,21 +115,33 @@ footer {
  }
 
  /* ルールボタン設定 */
- #role-btn{
-   left: 70%;
-   width: 100px;
-   color: #fff;
-   border-color: #25d834cb;
-   background-color: #25d834cb;
-   border-bottom: 7px solid #1a9b25cb;
- }
- #role-btn:hover {
+#role-btn{
+  left: 70%;
+  width: 100px;
+  color: #fff;
+  border-color: #25d834cb;
+  background-color: #25d834cb;
+  border-bottom: 7px solid #1a9b25cb;
+}
+#role-btn:hover {
   bottom: 8px;
   color: #fff;
   background: #25d834cb;
   border-bottom: 2px solid #1ea529cb;
+}
+.btn--shadow {
+  box-shadow: 1px 10px 5px rgba(0, 0, 0, .3);
+}
+
+/* タイマー設定 */
+ #timer {
+  position: absolute; 
+  top: 50%;
+  left: 50%;
+  font-size: 2em;
+  transform:translate(-50%,-100%);
+ }
+ #timer.hidden{
+  animation: out 1.1s linear 0s forwards;
  }
 
-.btn--shadow {
-box-shadow: 1px 10px 5px rgba(0, 0, 0, .3);
-}
