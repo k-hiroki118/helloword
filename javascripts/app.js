@@ -54,8 +54,6 @@ function typing(text,textLists) {
   });
 }
 
-
-
 // main 画面に遷移メソッド
 function location_main(){
   window.location.href = dir_name + '/main.php'; // 通常の遷移
@@ -74,36 +72,46 @@ if(file_name == 'main.php'){
   var contents = document.getElementById('contents');
 
   // <div id="timer"> を作成
-  var div = document.createElement('div');
-  div.setAttribute('id', 'timer');
+  var div_timer = document.createElement('div');
+  div_timer.setAttribute('id', 'timer');
 
+    // <div id="timer"> を作成
+    var div_text = document.createElement('div');
+    div_text.setAttribute('id', 'text');
 
   // スタートボタン押下後のイベント
   document.querySelector('#start-btn').addEventListener('click',function(e){
 
-    // Ajax XMLHttpRequest() API取得
-    var xhr = new XMLHttpRequest();
-    console.log(home_dir);
-    xhr.open('GET', home_dir + '/main.php');
-    xhr.send();
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState == 4) { // 通信の完了時
-        if (xhr.status == 200) { // 通信の成功時
-          console.log(xhr.responseText );
-        }
-      }else{
-      }
-    }
+    // データ取得
+    var words = getdata();
+
     // ボタンイベントは動作しない。
     e.preventDefault();
     // #contentsにクラス「hidden」を追加
     contents.classList.add("hidden");
     // #monitor-contents に<div id="timer">を追加
-    monitor_contents.appendChild(div);
+    monitor_contents.appendChild(div_timer);
 
     // カウントダウン開始
     countDown();
   });
+}
+
+// Ajax接続
+function getdata(){
+  var word;
+    // Ajax XMLHttpRequest() API取得
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', home_dir + '/main.php');
+    xhr.send();
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4) { // 通信の完了時
+        if (xhr.status == 200) { // 通信の成功時
+          word = xhr.responseText;
+        }
+      }else{
+      }
+    }
 }
 
 // カウントダウン処理
