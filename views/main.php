@@ -20,10 +20,10 @@
                 それでは、タイピングの世界へいってらっしゃい！
               </p>
             </div>
-            <button id="start-btn" class="main-btn  btn--shadow"> 
+            <button id="start-btn" class="main-btn  btn-shadow"> 
               <p>スタート</p>
             </button>
-            <button id="role-btn" class="main-btn btn--shadow">
+            <button id="role-btn" class="main-btn btn-shadow">
               <p>ルール</p>
             </button>
           </div>
