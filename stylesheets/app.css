@@ -1,6 +1,7 @@
 * {
   padding: 0;
   margin: 0;
+  font-family: 'Courier';
 }
 /* ボディー設定 */
 body {
@@ -26,6 +27,18 @@ main{
   letter-spacing: 10px;
   font-family: 'Courier';
 } 
+
+#translation {
+  position:absolute;
+  top:30%;
+  left:50%;
+  transform:translate(-50%,-100%);
+  width:100%;
+  font-size: 2em;
+  letter-spacing: 20px;
+  font-family: 'Courier';
+}
+
 .under-line {
   border-bottom: solid #000 4px;
 }
@@ -49,8 +62,8 @@ footer {
 .monitor {
   text-align: center;
   height: 90%;
-  width: 50%;
-  margin: 0 25%;
+  width: 70%;
+  margin: 0 15%;
   /* border-radius: 10%;
   border: solid 5px #000; */
 }
@@ -116,7 +129,7 @@ footer {
 
  /* ルールボタン設定 */
 #role-btn{
-  left: 70%;
+  left: 60%;
   width: 100px;
   color: #fff;
   border-color: #25d834cb;
@@ -133,15 +146,48 @@ footer {
   box-shadow: 1px 10px 5px rgba(0, 0, 0, .3);
 }
 
-/* タイマー設定 */
- #timer {
+/* カウントダウン設定 */
+ #count_timer {
   position: absolute; 
   top: 50%;
   left: 50%;
   font-size: 2em;
   transform:translate(-50%,-100%);
  }
- #timer.hidden{
+ #count_timer.hidden{
   animation: out 1.1s linear 0s forwards;
  }
 
+ /* ゲーム中タイマー設定 */
+ #game_timer {
+  position: absolute; 
+  top: 10%;
+  left: 80%;
+  font-size: 3em;
+  transform:translate(-50%,-100%);
+ }
+
+ /* 終了モニター設定 */
+#end-monitor {
+  position: fixed;
+  top: -100%;
+  background-color: white;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%,-100%)
+}
+
+#end-monitor.active {
+  top: 100%;
+  transition: all 0.5s;
+}
+/* 「終了！！」の文字 */
+#end-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%,-100%);
+  font-size: 2em;
+}

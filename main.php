@@ -19,7 +19,7 @@ try {
 $db = new PDO($dsn, $user, $password);
 
 // 接続を使用する
-$sth = $db->prepare('SELECT id,english_words,japanese FROM words ORDER BY RAND() LIMIT 10');
+$sth = $db->prepare('SELECT id,english_words,japanese FROM words ORDER BY RAND() LIMIT 150');
 $sth->execute();
 $sql_data = $sth->fetchAll(PDO::FETCH_ASSOC);
 

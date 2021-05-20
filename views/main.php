@@ -6,7 +6,7 @@
     <title>タイピングゲーム</title>
   </head>
   <body>
-    <header></header>
+    <header id="header"></header>
     <main>
       <div class="monitor">
         <div id="monitor-contents" class="monitor-contents">
@@ -29,8 +29,8 @@
           </div>
         </div>
       </div>
-      <script type="text/javascript" src="../javascripts/app.js"></script>
     </main>
+    <script type="text/javascript" src="../javascripts/app.js"></script>
 
     <footer>
       <copy id="copy">copyright 2021 Hiroki Kinjo & Mamoru Moriai.</copy>
