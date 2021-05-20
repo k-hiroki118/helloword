@@ -10,10 +10,19 @@ const dir_name = pathinfo.join('/');
 pathinfo.pop();
 const home_dir = pathinfo.join('/');
 
+
+// main.phpで扱うグローバル変数
+
+// Ajaxで取得したデータを格納 
+var data = [];
+// ゲームのステータス 実行:true 停止:false
+var game_status = false;
+
 /**
  * top.php
  */ 
 if (file_name == 'top.php') {
+  game_status = true;
   var text = document.getElementById('text');
   var textLists = [
     "helloword."
@@ -96,6 +105,7 @@ function typing(text,textLists,translationLists = null) {
     if (word.length == 0 ) {
       // 「top.php」の場合、main画面へ遷移
       if (file_name == 'top.php') {
+        game_status = false;
         location_main();
       } else {
         // splice で入力済の単語を配列から削除
@@ -119,13 +129,6 @@ function location_main() {
 function location_last() {
   window.location.href = dir_name + '/top.php'; // 通常の遷移
 }
-
-// main.phpで扱うグローバル変数
-
-// Ajaxで取得したデータを格納 
-var data = [];
-// ゲームのステータス 実行:true 停止:false
-var game_status = false;
 
 /**
  * main.php
