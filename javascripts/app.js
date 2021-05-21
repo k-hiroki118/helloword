@@ -85,11 +85,11 @@ function typing(text,textLists,translationLists = null) {
 
     // escapeを押下したらゲーム終了
     // 一度「esc」を押しても作用しないことがあるから3秒長押しする。
-    if(keycd == 'Escape') {
-      //game_status をfalseに変更
-      game_status = false;
-      // スタート画面に遷移 
-      location_main();
+    if (file_name == 'main.php') {
+      if(keycd == 'Escape') {
+        // スタート画面に遷移 
+        location_main();
+      }
     }
 
     // 入力した文字が正しかったら
@@ -105,7 +105,6 @@ function typing(text,textLists,translationLists = null) {
     if (word.length == 0 ) {
       // 「top.php」の場合、main画面へ遷移
       if (file_name == 'top.php') {
-        game_status = false;
         location_main();
       } else {
         // splice で入力済の単語を配列から削除
@@ -134,6 +133,9 @@ function location_last() {
  * main.php
  */
 if (file_name == 'main.php') {
+
+  //game_status をfalseに変更
+  game_status = false;
 
   // header 取得 
   var header = document.getElementById("header");
@@ -259,7 +261,7 @@ if (file_name == 'main.php') {
    * ゲーム中のカウントダウン
    */
   function timer() {
-    count = 3;
+    count = 59;
     document.querySelector('#game_timer').textContent = '01:00';
     var id = setInterval(function() {
       if (count < 10) {
