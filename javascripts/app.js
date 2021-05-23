@@ -288,5 +288,6 @@ if (file_name == 'main.php') {
     var div_endmonitor = document.getElementById('end-monitor');
     div_endmonitor.className ="active";
   }
-}
-
+  
+  
+  
