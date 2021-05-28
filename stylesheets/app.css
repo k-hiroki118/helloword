@@ -69,7 +69,7 @@ footer {
 }
 .monitor-contents {
   position: relative;
-  margin: 5%;
+  padding: 5%;
   height: 90%;
 }
 .content-text{
@@ -105,7 +105,7 @@ footer {
 .main-btn {
   font-size: 1.3em;
   position: absolute;
-  bottom: 10px;
+  bottom: 10%;
   transform:translate(-50%,-100%);
   height: 60px;
   border-radius: 10px;
@@ -121,7 +121,7 @@ footer {
   border-bottom: 7px solid #b84c00;
 }
 #start-btn:hover {
-  bottom: 8px;
+  bottom: 9%;
   color: #fff;
   background: #f56500;
   border-bottom: 2px solid #b84c00;
@@ -137,7 +137,7 @@ footer {
   border-bottom: 7px solid #1a9b25cb;
 }
 #role-btn:hover {
-  bottom: 8px;
+  bottom: 9%;
   color: #fff;
   background: #25d834cb;
   border-bottom: 2px solid #1ea529cb;
@@ -167,6 +167,15 @@ footer {
   transform:translate(-50%,-100%);
  }
 
+ /* ゲームスコア設定 */
+ #game_score {
+  position: absolute; 
+  top: 10%;
+  left: 20%;
+  font-size: 3em;
+  transform:translate(-50%,-100%);
+ }
+
  /* 終了モニター設定 */
 #end-monitor {
   position: fixed;
@@ -182,6 +191,11 @@ footer {
   top: 100%;
   transition: all 0.5s;
 }
+#end-monitor.hidden {
+  /* monitorを2秒かけて消す */
+  animation: out 1.1s linear 0s forwards;
+} 
+
 /* 「終了！！」の文字 */
 #end-text {
   position: absolute;
@@ -238,3 +252,93 @@ footer {
 .rule {
 	text-align: left;
 }
+
+/*
+  #####################################################
+  #                  score画面設定                     #
+  #####################################################
+ */
+ /* スコアコンテンツの設定 */
+ #score-contents {
+   border-radius: 10%;
+   border: solid 5px #000;
+   padding: 10px;
+   margin: 10px 50px 10px 50px;
+   height: 60%;
+  }
+  /* 「結果」の設定 */
+  #score-contents #score-title {
+    font-size: 2em;
+    font-weight: bold;
+    font-family: 'Courier';
+  }
+  /* hrの設定 */
+  hr {
+    border: 0.1px solid #000;
+  }
+  
+  /* スコアデータの設定 */
+  .score-data {
+    font-size: large;
+
+    position: relative;
+    height: 80%;
+    padding: 10px;
+  }
+  
+
+  /* スコアの設定 */
+  #scoreAria {
+    position: absolute;
+    top:10%;
+    left:20%;
+    transform: translate(-50%, -50%);
+  }
+  /* ランクエリアの設定 */
+  #rankAria {
+    position: absolute;
+    top:10%;
+    left:80%;
+    transform: translate(-50%, -50%);
+  }
+  /* 入力単語数の設定 */
+  #submitWordAria {
+    position: absolute;
+    top:80%;
+    left:20%;
+    transform: translate(-50%, -50%);
+  }
+  /* 正解率の設定 */
+  #accuracyRateAria {
+    position: absolute;
+    top:80%;
+    left:50%;
+    transform: translate(-50%, -50%);
+  }
+  /* タイプ速度の設定 */
+  #typAverageAria {
+    position: absolute;
+    top:80%;
+    left:80%;
+    transform: translate(-50%, -50%);
+  }
+  /* もう１度ボタン設定 */
+  #again-btn{
+    left:50%;
+    width: 180px;
+    color: #fff;
+    border-color: #0066eb;
+    background-color: #0066eb;
+    border-bottom: 7px solid #0066eb;
+  }
+  #again-btn:hover {
+    bottom: 9%;
+    color: #fff;
+    background: #002df3;
+    border-bottom: 2px solid #002df3;
+   }
+
+   /* 取得したデータの設定 */
+   .typ-data {
+    font-size: 2em;
+   }
