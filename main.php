@@ -6,7 +6,7 @@ $dsn = 'mysql:dbhost=localhost;dbname=hirokilab_typing';
 // ユーザー名 $username
 $user = 'root';
 // パスワード $password
-$password = '';
+$password = 'root';
 
 $sql_data;
 

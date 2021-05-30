@@ -76,7 +76,6 @@ function typing(text,textLists,translationLists = null) {
   // 乱数格納変数
   var rnd;
 
-
   // createTextメソッド呼び出し
   createText();
 
@@ -381,7 +380,7 @@ if (file_name == 'main.php') {
    * ゲーム中のカウントダウン
    */
   function timer() {
-    count = 59;
+    count = 5;
     document.querySelector('#game_timer').textContent = '01:00';
     var id = setInterval(function() {
       if (count < 10) {
@@ -457,35 +456,48 @@ if (file_name == 'main.php') {
   // 成功単語数取得
   submit_word = sessionStorage.getItem('submit_word');
 
-
-
+  
   // id="score" 取得
   var score_set = document.getElementById('score');
   // id="score" にスコアを設定
-  score_set.textContent = score;
+  // score_set.textContent = score;
+  scoreLag(score_set, score, 8000);
 
   // id="rank" 取得
   var rank_set = document.getElementById('rank');
   // id="rank" にランクを設定
-  rank_set.textContent = rankSet(score);
+  // rank_set.textContent = rankSet(score);
+  scoreLag(rank_set, rankSet(score), 10000);
 
   // id="submitWord" 取得 
   var submit_word_set = document.getElementById('submitWord');
   // id="submitWord" に成功単語数を設定
-  submit_word_set.textContent = submit_word;
+  // submit_word_set.textContent = submit_word;
+  scoreLag(submit_word_set, submit_word, 6000);
 
   // id="accuracyRate" 取得
   var accuracy_rate_set = document.getElementById('accuracyRate');
   // id="accuracyRate" に正解率を設定
-  accuracy_rate_set.textContent = accuracyRateSet(input_key,submit_key_total);
-
-
+  // accuracy_rate_set.textContent = accuracyRateSet(input_key,submit_key_total);
+  scoreLag(accuracy_rate_set, accuracyRateSet(input_key, submit_key_total), 4000);
 
   // id="typAverage" 取得 
   var typ_average_set = document.getElementById('typAverage');
   // id="typAverage" に平均タイピング速度を設定
-  typ_average_set.textContent = typAverageSet(input_key);
+  // typ_average_set.textContent = typAverageSet(input_key);
+  scoreLag(typ_average_set, typAverageSet(input_key), 2000);
 
+  
+  // スコア表示に時間差を持たせる関数
+  function scoreLag(tag, itm, sec) {
+    var stopwatch = setInterval(function(){
+      tag.textContent = Math.round( Math.random()*1000 );
+    }, 50)
+    setTimeout(function(){
+      clearInterval(stopwatch);
+      tag.textContent = itm;
+    }, sec)
+  }
 
 
   console.log(score);
