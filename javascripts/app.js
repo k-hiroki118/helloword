@@ -10,6 +10,16 @@ const dir_name = pathinfo.join('/');
 pathinfo.pop();
 const home_dir = pathinfo.join('/');
 
+// sound
+// main.php BGM
+const mainBGM = new Audio ('../sound/main_bgm.mp3');
+// スタート時の効果音
+const startSound = new Audio('../sound/start.mp3');
+// タイピング時の効果音
+const typingSound = new Audio('../sound/typsound.mp3');
+// タイピング時の効果音
+const submitSound = new Audio('../sound/submit2.mp3');
+
 
 // main.phpで扱うグローバル変数
 
@@ -115,6 +125,10 @@ function typing(text,textLists,translationLists = null) {
       return;  
     }
 
+    // タイピング効果音
+    typingSound.play();
+    typingSound.currentTime = 0;
+
     // 入力数を取得 input_key
     input_key++;
     console.log('input_key='+input_key);
@@ -156,6 +170,12 @@ function typing(text,textLists,translationLists = null) {
       if (file_name == 'top.php') {
         location_main();
       } else {
+
+        // 正解効果音
+        submitSound.play();
+        submitSound.currentTime = 0;
+        
+
         // splice で入力済の単語を配列から削除
         translationLists.splice(rnd,1);
         textLists.splice(rnd,1);
@@ -220,6 +240,10 @@ if (file_name == 'main.php') {
   document.querySelector('#start-btn').addEventListener('click',function(e) {
     if(game_status) return;
     game_status = true;
+
+    // スタート効果音
+    startSound.play();
+    startSound.currentTime = 0;
 
     // データ取得
     getdata();
