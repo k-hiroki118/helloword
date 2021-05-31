@@ -485,31 +485,31 @@ if (file_name == 'main.php') {
   var score_set = document.getElementById('score');
   // id="score" にスコアを設定
   // score_set.textContent = score;
-  scoreLag(score_set, score, 8000);
+  scoreLag(score_set, score, 4000);
 
   // id="rank" 取得
   var rank_set = document.getElementById('rank');
   // id="rank" にランクを設定
   // rank_set.textContent = rankSet(score);
-  scoreLag(rank_set, rankSet(score), 10000);
+  scoreLag(rank_set, rankSet(score), 5000);
 
   // id="submitWord" 取得 
   var submit_word_set = document.getElementById('submitWord');
   // id="submitWord" に成功単語数を設定
   // submit_word_set.textContent = submit_word;
-  scoreLag(submit_word_set, submit_word, 6000);
+  scoreLag(submit_word_set, submit_word, 3000);
 
   // id="accuracyRate" 取得
   var accuracy_rate_set = document.getElementById('accuracyRate');
   // id="accuracyRate" に正解率を設定
   // accuracy_rate_set.textContent = accuracyRateSet(input_key,submit_key_total);
-  scoreLag(accuracy_rate_set, accuracyRateSet(input_key, submit_key_total), 4000);
+  scoreLag(accuracy_rate_set, accuracyRateSet(input_key, submit_key_total), 2000);
 
   // id="typAverage" 取得 
   var typ_average_set = document.getElementById('typAverage');
   // id="typAverage" に平均タイピング速度を設定
   // typ_average_set.textContent = typAverageSet(input_key);
-  scoreLag(typ_average_set, typAverageSet(input_key), 2000);
+  scoreLag(typ_average_set, typAverageSet(input_key), 1000);
 
   
   // スコア表示に時間差を持たせる関数

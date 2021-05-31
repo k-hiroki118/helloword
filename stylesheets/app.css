@@ -272,22 +272,43 @@ footer {
     font-weight: bold;
     font-family: 'Courier';
   }
-  /* hrの設定 */
-  hr {
-    border: 0.1px solid #000;
-  }
-  
+	
+	.score-title {
+		text-align: left;
+		font-size: 1.5em;
+		font-family: 'Courier';
+		/*font-weight: bold;*/
+	}
+	
+	.score-rank {
+		text-align: right;
+		margin-right: 10%;
+		font-size: 3em;
+		font-family: cursive;
+	}
+	
+	.score-ul {
+		list-style: none;
+		font-size: 1.3em;
+	}
+	
   /* スコアデータの設定 */
+	/*
   .score-data {
     font-size: large;
-
     position: relative;
     height: 80%;
     padding: 10px;
   }
   
-
+	/* hrの設定 */
+	/*
+  hr {
+    border: 0.1px solid #000;
+  }
+  
   /* スコアの設定 */
+	/*
   #scoreAria {
     position: absolute;
     top:10%;
@@ -295,6 +316,7 @@ footer {
     transform: translate(-50%, -50%);
   }
   /* ランクエリアの設定 */
+	/*
   #rankAria {
     position: absolute;
     top:10%;
@@ -302,6 +324,7 @@ footer {
     transform: translate(-50%, -50%);
   }
   /* 入力単語数の設定 */
+	/*
   #submitWordAria {
     position: absolute;
     top:80%;
@@ -309,6 +332,7 @@ footer {
     transform: translate(-50%, -50%);
   }
   /* 正解率の設定 */
+	/*
   #accuracyRateAria {
     position: absolute;
     top:80%;
@@ -316,12 +340,15 @@ footer {
     transform: translate(-50%, -50%);
   }
   /* タイプ速度の設定 */
+	/*
   #typAverageAria {
     position: absolute;
     top:80%;
     left:80%;
     transform: translate(-50%, -50%);
   }
+  */
+	
   /* もう１度ボタン設定 */
   #again-btn{
     left:50%;
@@ -330,6 +357,7 @@ footer {
     border-color: #0066eb;
     background-color: #0066eb;
     border-bottom: 7px solid #0066eb;
+		cursor: pointer;
   }
   #again-btn:hover {
     bottom: 9%;
@@ -337,8 +365,42 @@ footer {
     background: #002df3;
     border-bottom: 2px solid #002df3;
    }
-
-   /* 取得したデータの設定 */
-   .typ-data {
-    font-size: 2em;
-   }
+	 
+	 
+	 /* 答案用紙風 */
+	.score-body {
+		background: linear-gradient(#ccc, #fff);
+		font: 14px sans-serif;
+		padding: 20px;
+	}
+	.score-sheets {
+	  background: #fff;
+	  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+	  margin: 26px auto 0;
+	  max-width: 550px;
+	  min-height: 300px;
+	  padding: 24px;
+		position: relative;
+	  width: 80%;
+	}
+	.score-sheets:before, .score-sheets:after {
+	  content: "";
+	  height: 98%;
+	  position: absolute;
+	  width: 100%;
+	  z-index: -1;
+	}
+	.score-sheets:before {
+	  background: #fafafa;
+	  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+	  left: -5px;
+	  top: 4px;
+	  transform: rotate(-2.5deg);
+	}
+	.score-sheets:after {
+	  background: #f6f6f6;
+	  box-shadow: 0 0 3px rgba(0,0,0,0.2);
+	  right: -3px;
+	  top: 1px;
+	  transform: rotate(1.4deg);
+	}
