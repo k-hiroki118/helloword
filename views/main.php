@@ -6,7 +6,9 @@
     <title>タイピングゲーム</title>
   </head>
   <body>
-    <header id="header"></header>
+    <header id="header">
+      <img id="bgm_btn" src="../sound/bgm_icon_off.jpeg" alt="sound" onclick="BGM()">
+    </header>
     <main>
       <div class="monitor">
         <div id="monitor-contents" class="monitor-contents">

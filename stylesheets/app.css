@@ -253,6 +253,15 @@ footer {
 	text-align: left;
 }
 
+/* bgmボタン */
+#bgm_btn {
+  position: absolute; 
+  top: 10%;
+  left: 50%;
+  font-size: 3em;
+  transform:translate(-50%,-100%);
+}
+
 /*
   #####################################################
   #                  score画面設定                     #
@@ -371,7 +380,6 @@ footer {
 	.score-body {
 		background: linear-gradient(#ccc, #fff);
 		font: 14px sans-serif;
-		padding: 20px;
 	}
 	.score-sheets {
 	  background: #fff;

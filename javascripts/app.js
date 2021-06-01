@@ -11,6 +11,8 @@ pathinfo.pop();
 const home_dir = pathinfo.join('/');
 
 // sound
+// BGM on:off 設定 初期設定はBGM無し
+var sound = false;
 // main.php BGM
 const mainBGM = new Audio ('../sound/main_bgm.mp3');
 // スタート時の効果音
@@ -126,8 +128,11 @@ function typing(text,textLists,translationLists = null) {
     }
 
     // タイピング効果音
-    typingSound.play();
-    typingSound.currentTime = 0;
+    if (!sound) {
+      typingSound.play();
+      typingSound.currentTime = 0;
+    }
+    
 
     // 入力数を取得 input_key
     input_key++;
@@ -172,8 +177,10 @@ function typing(text,textLists,translationLists = null) {
       } else {
 
         // 正解効果音
-        submitSound.play();
-        submitSound.currentTime = 0;
+        if (!sound) {
+          submitSound.play();
+          submitSound.currentTime = 0;
+        }
         
 
         // splice で入力済の単語を配列から削除
@@ -236,14 +243,24 @@ if (file_name == 'main.php') {
   var game_score = document.createElement('div');
   game_score.setAttribute('id', 'game_score');
 
+  // <img id="bgm_btn" src="../sound/bgm_icon_off.jpeg" alt="sound_off" onclick="BGM()"> を取得
+  var bgm_btn = document.getElementById("bgm_btn");
+
+  // セッションからBGM・効果音の有無を取得
+  if (sessionStorage.getItem('sound')){
+    sound = sessionStorage.getItem('sound');
+  }
+
   // スタートボタン押下後のイベント
   document.querySelector('#start-btn').addEventListener('click',function(e) {
     if(game_status) return;
     game_status = true;
 
     // スタート効果音
-    startSound.play();
-    startSound.currentTime = 0;
+    if (!sound) {
+      startSound.play();
+      startSound.currentTime = 0;
+    }
 
     // データ取得
     getdata();
@@ -332,7 +349,6 @@ if (file_name == 'main.php') {
     div_endtext.textContent = '終了！！';
     
 
-
     // #monitor-contents に作成した要素を追加
     monitor_contents.appendChild(div_text);
     monitor_contents.appendChild(div_translation);
@@ -404,7 +420,7 @@ if (file_name == 'main.php') {
    * ゲーム中のカウントダウン
    */
   function timer() {
-    count = 5;
+    count = 59;
     document.querySelector('#game_timer').textContent = '01:00';
     var id = setInterval(function() {
       if (count < 10) {
@@ -435,10 +451,13 @@ if (file_name == 'main.php') {
     monitor_contents.remove();
     game_timer.remove();
     game_score.remove();
+    bgm_btn.remove();
 
     //セッションにデータを保存
     //セッション有無
     sessionStorage.setItem('session_existence',true);
+    // BGM・効果音設定有無
+    sessionStorage.setItem('sound',sound);
     // 入力文字数
     sessionStorage.setItem('input_key', input_key);
     // 正解文字合計数
@@ -454,6 +473,25 @@ if (file_name == 'main.php') {
       div_endmonitor.classList.toggle("hidden");
       setTimeout(location_score,3000);
     },1000);
+  }
+
+  /**
+   * main.php BGM 設定
+   */
+
+  function BGM() {
+    if (sound) {
+      console.log('再生');
+      bgm_btn.src='../sound/bgm_icon.jpeg'
+      mainBGM.play();
+      sound = false;
+    } else {
+      console.log('停止');
+      bgm_btn.src='../sound/bgm_icon_off.jpeg';
+      mainBGM.pause();
+      mainBGM.currentTime = 0;
+      sound = true;
+    }
   }
 }
 
