@@ -310,12 +310,6 @@ footer {
     padding: 10px;
   }
   
-	/* hrの設定 */
-	/*
-  hr {
-    border: 0.1px solid #000;
-  }
-  
   /* スコアの設定 */
 	/*
   #scoreAria {
@@ -412,3 +406,15 @@ footer {
 	  top: 1px;
 	  transform: rotate(1.4deg);
 	}
+
+  /* 単語追加画面設定 */
+  
+  /* hrの設定 */
+  hr {
+    margin: 10px 0;
+    border: 0.1px solid #000;
+  }
+
+  .registration {
+    text-align: center;
+  }
