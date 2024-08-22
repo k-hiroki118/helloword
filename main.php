@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8">
-    <link href="../stylesheets/app.css" rel="stylesheet">
+    <link href="/stylesheets/app.css" rel="stylesheet">
     <title>タイピングゲーム</title>
   </head>
   <body>
     <header id="header">
-      <img id="bgm_btn" src="../sound/bgm_icon_off.jpeg" alt="sound" onclick="BGM()">
+      <img id="bgm_btn" src="/sound/bgm_icon_off.jpeg" alt="sound" onclick="BGM()">
     </header>
     <main>
       <div class="monitor">
@@ -22,7 +22,7 @@
                 それでは、タイピングの世界へいってらっしゃい！
               </p>
             </div>
-            <button id="start-btn" class="main-btn  btn-shadow"> 
+            <button id="start-btn" class="main-btn btn-shadow"> 
               <p>スタート</p>
             </button>
             <button id="role-btn" class="main-btn btn-shadow js-modal-open" data-target="modal01">
@@ -48,7 +48,7 @@
         </div>
       </div>
     </main>
-    <script type="text/javascript" src="../javascripts/app.js"></script>
+    <script type="text/javascript" src="/javascripts/app.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- ウィンドウを開く -->
     <script>

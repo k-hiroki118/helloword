@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8">
-    <link href="../stylesheets/app.css" rel="stylesheet">
+    <link href="/stylesheets/app.css" rel="stylesheet">
     <title>単語追加</title>
   </head>
   <body>
@@ -28,7 +28,7 @@
       <div id="monitor-contents" class="monitor-contents">
         <div id="contents">
           <div class="content-text">
-            <form action="../add.php" method="get">
+            <form action="/addWords.php" method="get">
               英語：<input type="text" name="english"><br>
               日本語：<input type="text" name="japanese"><br>
               <lavel for="lavel-select">レベル選択：</lavel>
@@ -48,7 +48,7 @@
         </div>
       </div>
     </div>
-    <script type="text/javascript" src="../javascripts/app.js"></script>
+    <script type="text/javascript" src="/javascripts/app.js"></script>
     </main>
 
     <footer>

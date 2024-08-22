@@ -1,4 +1,5 @@
 // path取得
+
 const path = location.href;
 // urlを配列に変換
 const pathinfo = path.split('/');
@@ -6,21 +7,21 @@ const pathinfo = path.split('/');
 const file_name = pathinfo.pop();
 // ファイル名抜きで再度文字列に変換
 const dir_name = pathinfo.join('/');
-// http://〇〇/helloword/ を作成
-pathinfo.pop();
-const home_dir = pathinfo.join('/');
+// ルートディレクトリ
+const root = location.hostname
+
 
 // sound
 // BGM on:off 設定 初期設定はBGM無し
 var sound = false;
 // main.php BGM
-const mainBGM = new Audio ('../sound/main_bgm.mp3');
+const mainBGM = new Audio ('/sound/main_bgm.mp3');
 // スタート時の効果音
-const startSound = new Audio('../sound/start.mp3');
+const startSound = new Audio('/sound/start.mp3');
 // タイピング時の効果音
-const typingSound = new Audio('../sound/typsound.mp3');
+const typingSound = new Audio('/sound/typsound.mp3');
 // タイピング時の効果音
-const submitSound = new Audio('../sound/submit2.mp3');
+const submitSound = new Audio('/sound/submit2.mp3');
 
 
 // main.phpで扱うグローバル変数
@@ -31,9 +32,9 @@ var data = [];
 var game_status = false;
 
 /**
- * top.php
+ * index.php
  */ 
-if (file_name == 'top.php') {
+if (file_name == '') {
   game_status = true;
   var text = document.getElementById('text');
   var textLists = [
@@ -136,7 +137,6 @@ function typing(text,textLists,translationLists = null) {
 
     // 入力数を取得 input_key
     input_key++;
-    console.log('input_key='+input_key);
 
     // 入力した値をkeycdへ代入
     var keycd = e.key;
@@ -171,8 +171,8 @@ function typing(text,textLists,translationLists = null) {
 
     // 全て入力したら
     if (word.length == 0 ) {
-      // 「top.php」の場合、main画面へ遷移
-      if (file_name == 'top.php') {
+      // index.php」の場合、main画面へ遷移
+      if (file_name == '') {
         location_main();
       } else {
 
@@ -243,7 +243,7 @@ if (file_name == 'main.php') {
   var game_score = document.createElement('div');
   game_score.setAttribute('id', 'game_score');
 
-  // <img id="bgm_btn" src="../sound/bgm_icon_off.jpeg" alt="sound_off" onclick="BGM()"> を取得
+  // <img id="bgm_btn" src="/sound/bgm_icon_off.jpeg" alt="sound_off" onclick="BGM()"> を取得
   var bgm_btn = document.getElementById("bgm_btn");
 
   // セッションからBGM・効果音の有無を取得
@@ -283,7 +283,6 @@ if (file_name == 'main.php') {
 
     // ゲーム開始関数呼び出し
     function gamestart(){
-      console.log('game_start');
       game();
     }
     setTimeout(gamestart,7500);
@@ -296,7 +295,7 @@ if (file_name == 'main.php') {
   function getdata() {
     // Ajax XMLHttpRequest() API取得
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', home_dir + '/main.php');
+    xhr.open('GET', '/getWords.php');
     xhr.send();
     xhr.onreadystatechange = function() {
       if (xhr.readyState == 4) { // 通信の完了時
@@ -389,7 +388,6 @@ if (file_name == 'main.php') {
     submit_key = 0;
     miss_key = 0;
 
-    console.log('add_score='+add_score);
     return add_score;
   }
 
@@ -481,13 +479,11 @@ if (file_name == 'main.php') {
 
   function BGM() {
     if (sound) {
-      console.log('再生');
-      bgm_btn.src='../sound/bgm_icon.jpeg'
+      bgm_btn.src='/sound/bgm_icon.jpeg'
       mainBGM.play();
       sound = false;
     } else {
-      console.log('停止');
-      bgm_btn.src='../sound/bgm_icon_off.jpeg';
+      bgm_btn.src='/sound/bgm_icon_off.jpeg';
       mainBGM.pause();
       mainBGM.currentTime = 0;
       sound = true;
@@ -561,9 +557,6 @@ if (file_name == 'main.php') {
     }, sec)
   }
 
-
-  console.log(score);
-
   /**
    * ランク設定
    * 
@@ -618,7 +611,6 @@ if (file_name == 'main.php') {
     var accuracyRate = 0;
     accuracyRate = submit_key_total / input_key * 100;
     // 小数点第1位で返す
-    console.log(input_key,submit_key_total,accuracyRate);
     return accuracyRate.toFixed(1);
   }
 
