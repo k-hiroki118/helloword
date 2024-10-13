@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <link href="/stylesheets/app.css" rel="stylesheet">
     <title>単語追加</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V3M4GB2YH7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-V3M4GB2YH7');
+    </script>
   </head>
   <body>
     <?php
