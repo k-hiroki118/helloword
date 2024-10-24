@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no">
+    <!-- 検索可能にする -->
+    <meta name="robots" content="index,follow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="楽しくタイピングスキルを磨ける無料のタイピングゲーム。初心者から上級者まで楽しめる多彩なモードをご用意。">
-    <meta name="keywords" content="タイピングゲーム, 無料タイピング, 日本語タイピング, タイピング練習, タイピングテスト, helloword, HELLOWORD, ハロー, ワード">
-    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="タイピング, タイピングゲーム, 無料タイピング, 日本語タイピング, タイピング練習, タイピングテスト, helloword, HELLOWORD, ハロー, ワード">
+    <meta name="author" content="Hiroki Kinjo & Mamoru Moriai">
+    <meta property="og:site_name" content="helloword">
     <meta property="og:title" content="タイピングゲーム - 無料でタイピングスキルを向上">
     <meta property="og:description" content="タイピングスキルを楽しく向上させることができる無料のタイピングゲーム。多様なモードでスキルを鍛えよう。">
     <meta property="og:url" content="https://helloword.hirokilab.com/">
